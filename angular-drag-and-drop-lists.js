@@ -75,7 +75,7 @@
    *                      it's source position, and not the "element" that the user is dragging with
    *                      his mouse pointer.
    */
-  dndLists.directive('dndDraggable', ['$parse', '$timeout', function($parse, $timeout) {
+  dndLists.directive('gccsDraggable', ['$parse', '$timeout', function($parse, $timeout) {
     return function(scope, element, attr) {
       // Set the HTML5 draggable attribute on the element.
       element.attr("draggable", "true");
@@ -108,7 +108,7 @@
 
         // Internet Explorer and Microsoft Edge don't support custom mime types, see design doc:
         // https://github.com/marceljuenemann/angular-drag-and-drop-lists/wiki/Data-Transfer-Design
-        var item = scope.$eval(attr.dndDraggable);
+        var item = scope.$eval(attr.gccsDraggable);
         var mimeType = MIME_TYPE + (dndState.itemType ? ('-' + dndState.itemType) : '');
         try {
           event.dataTransfer.setData(mimeType, angular.toJson(item));
